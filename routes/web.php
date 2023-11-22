@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 // Route::get('cursos', [cursoController::class, 'index'])->name('cursos.index');
 // Route::get('cursos/crear', [cursoController::class, 'create'])->name('cursos.create');
@@ -36,3 +36,5 @@ Route::resource('cursos', cursoController::class);
 // EN CASO DE SER NECESARIO: Si queremos cambiar el nombre de las rutas podemos simplemente cambiar el nombre dentro de los parentesis, también podemos añadir la funcion parameters() para indicar que los parametros que reciben las rutas en lugar de asignaturas se queden como curso para no generar problemas y añadir names() para cambiar los nombres de las funciones generadas en el controllador
 
 // Route::resource('asignaturas', cursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
+
+Route::view('nosotros', 'nosotros')->name('nosotros');
