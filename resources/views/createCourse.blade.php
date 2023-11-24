@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('Layouts.plantilla')
+@section('title', 'Crear')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
+@section('content')
     <h1>Crear un nuevo curso</h1>
     <form action="{{ route('cursos.store') }}" method="POST">
         @csrf
@@ -24,8 +17,8 @@
         <label for="">
             Description: <br>
             <textarea name="description" id="" cols="25" rows="5">
-                {{ old('description') }}
-            </textarea>
+            {{ old('description') }}
+        </textarea>
         </label>
         @error('description')
             {{ $message }}
@@ -39,6 +32,4 @@
         @enderror
         <button type="submit">Enviar</button>
     </form>
-</body>
-
-</html>
+@endsection
