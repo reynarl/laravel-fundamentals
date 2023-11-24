@@ -50,8 +50,19 @@ class User extends Authenticatable
         // $profile = Profile::where('user_id', $this->id)->first();
         // return $profile;
 
-        //hasOne considera que la llave primaria de la tabla users es id y la llave foranea de la tabla profile es user_id, de lo contrario se tendrán que pasar por parámetros por aparte los nombre de las llaves foraneas
+        //hasOne considera que la llave primaria de la tabla users es id y la llave foranea de la tabla profile es user_id, de lo contrario se tendrán que  pasar por parámetros por aparte los nombre de las llaves foraneas
         return $this->hasOne(Profile::class);
         // pe. return $this->hasOne(Profile::class, 'foreing_key', 'local_key');
+    }
+
+    //UNO A MUCHOS:
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
     }
 }
