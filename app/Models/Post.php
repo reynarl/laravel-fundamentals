@@ -19,4 +19,11 @@ class Post extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+
+    //RELACION UNO A UNO POLIMORFICA
+    public function image()
+    {
+        //pasamos la clase Image y como segundo parámetro tenemos que agregar el nombre de la función/método que pusimos en el modelo Image para poder recuperar los registros de esta relación
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }
