@@ -21,4 +21,10 @@ class Video extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    //RELACION MUCHOS A MUCHOS POLIFORMICA
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }
