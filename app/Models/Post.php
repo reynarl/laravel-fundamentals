@@ -26,4 +26,10 @@ class Post extends Model
         //pasamos la clase Image y como segundo parámetro tenemos que agregar el nombre de la función/método que pusimos en el modelo Image para poder recuperar los registros de esta relación
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    //RELACION UNO A MUCHOS POLIMORFICA
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }
